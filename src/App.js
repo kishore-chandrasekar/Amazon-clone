@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Checkout from './Checkout';
 import Login from './Login';
 import { useEffect, useState } from 'react';
-import { auth } from "./firebase"
-import { onAuthStateChanged } from "firebase/auth"
+
+
 import { useStatevalue } from './StateProvider';
 import Payment from './Payment';
 import {loadStripe} from "@stripe/stripe-js"
@@ -22,24 +22,21 @@ const promise=loadStripe("pk_test_51KPe9ESJ2Ao6OkPJATqwXh9eLvVsq699f5eFMyT4zvl6f
 function App() {
   const [{ }, dispatch] = useStatevalue();
   // const [users,setUser]=useState({})
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     dispatch({
+  //       type: "SET_USER",
+  //       user: currentUser
+  //     })
+  //   } else {
+  //     dispatch({
+  //       type: "SET_USER",
+  //       user: null
 
+  //     })
+  //   }
 
-      if (currentUser) {
-        dispatch({
-          type: "SET_USER",
-          user: currentUser
-        })
-      } else {
-        dispatch({
-          type: "SET_USER",
-          user: null
-
-        })
-      }
-    })
-  }, [])
+  // }, [])
   return (
     <Router>
       <div className="app">

@@ -10,32 +10,31 @@ function CreateUser() {
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [username, setUsername] = useState('');
-  const[{basket,user},dispatch]=useStatevalue();
-  const history=useHistory()
+  const [{ basket, user }, dispatch] = useStatevalue();
+  const history = useHistory()
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      var response = await axios.post("https://cheak.herokuapp.com//register/registerUser", {
+      var response = await axios.post("https://cheak.herokuapp.com/register/registerUser", {
         email: email,
         password: password,
-        phone:phone,
-        username:username
+        phone: phone,
+        username: username
       })
-      console.log(response.data)
-      if (response.data) {
-        await localStorage.setItem("token", response.data)
-        var currentUser = email
-        console.log(currentUser)
-        const setUser = () => {
-          dispatch({
-            type: "SET_USER",
-            user: currentUser
-          })
-        }
-        setUser()
-        history.push("/login")
+      console.log(response)
 
-      }
+      // var currentUser = email
+      // console.log(currentUser)
+      // const setUser = () => {
+      //   dispatch({
+      //     type: "SET_USER",
+      //     user: currentUser
+      //   })
+      // }
+      // setUser()
+      history.push("/login")
+
+
     } catch (error) {
       console.log(error)
     }
@@ -46,7 +45,7 @@ function CreateUser() {
       <img className='createuser__logo' src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"></img>
       <div className='createuser__container'>
         <h1>Create Your Amazon Account</h1>
-        <form onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit}>
           <h5>User-Name</h5>
           <input type="text" value={username} name="username" onChange={e => setUsername(e.target.value)} />
           <h5>E-mail</h5>

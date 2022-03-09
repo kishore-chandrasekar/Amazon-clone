@@ -1,0 +1,36 @@
+.CreateProduct{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.background{
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    background-position: center center;
+    background-image: url(./images/sell.png);
+    
+}
+.Button{
+    justify-content: center;
+    background:#f0c14b;
+    border: 1px solid;
+    margin-top :10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+}
+.form{
+    font-weight: 800;
+    
+}
+.heading{
+    font-weight: 900;
+   
+    justify-content: center;
+    margin-top: 2%;
+    display: flex;
+}
